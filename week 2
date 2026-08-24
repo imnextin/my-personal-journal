@@ -1,0 +1,52 @@
+Monday, 24 August 2026
+Week 2 — Understanding the Colab Demo Interface
+Work completed
+
+Studied the interactive widget interface.
+Identified the source-image selection section.
+Identified the driving-video selection section.
+Examined model choices:
+Vox
+Vox-adv
+Tai-Chi
+Tai-Chi-adv
+NEMO
+MGIF
+Fashion
+BAIR
+Examined the relative and adapt_movement_scale options.
+Tested the default image/video selection logic.
+The supplied code initially selects image 00 and video 0.
+
+Error/problem faced
+
+The interface depends on JavaScript callbacks such as:
+
+notebook.select_image
+
+and
+
+notebook.select_video.
+
+Colab widget/JavaScript behavior can fail if callbacks are not registered correctly or if the notebook has not completely initialized.
+
+Resolution
+
+The callback registration and JavaScript selection mechanism were reviewed. The default image and video were explicitly selected using:
+
+select_image('00')
+
+and
+
+select_video('0').
+
+Dataset/project picture
+
+Example animation results from the project's benchmark datasets. 
+G
+GitHub
+
+Learning
+
+I learned how the project separates a source image, which provides appearance, from a driving video, which provides motion.
+
