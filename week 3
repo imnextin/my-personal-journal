@@ -1,0 +1,32 @@
+Monday, 31 August 2026
+Week 3 — Image and Video Input Processing
+Work completed
+
+Studied the resize() function.
+Examined how source images are converted to RGB.
+Examined center cropping to a square.
+Studied video frame extraction using ImageIO and FFmpeg.
+Checked how video FPS is obtained.
+Examined conversion of video frames to 256 × 256.
+The project documentation states that source images and driving videos should be appropriately cropped before animation. 
+G
+GitHub
+
+Error/problem faced
+
+An input image that is not square or has an unsupported color mode can create unexpected dimensions or processing problems.
+
+Video files can also fail to decode when FFmpeg support is unavailable or the file format is incompatible.
+
+Resolution
+
+The notebook converts images to RGB and performs square cropping/resizing. FFmpeg-related Python packages were installed.
+
+Dataset/project picture
+
+VoxCeleb examples show how facial appearance from a source image can be animated using motion extracted from a driving sequence.
+
+Learning
+
+I learned that consistent image dimensions are important because the model configuration expects a 256 × 256 × 3 input.
+
