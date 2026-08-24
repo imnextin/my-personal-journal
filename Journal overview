@@ -1,0 +1,8 @@
+First Order Motion Model for Image Animation
+Weekly Project Journal — Mondays, 17 August 2026 to 9 November 2026
+Project Overview
+The project implements the First Order Motion Model for Image Animation in Google Colab. The system takes a source image and a driving video and transfers the motion from the driving video to the source image. The supplied notebook uses Python, PyTorch-based model code, OpenCV, FFmpeg, ImageIO, scikit-image and ipywidgets to provide an interactive interface.
+
+The original project provides separate configurations and pretrained models for datasets including VoxCeleb, Fashion, MGIF, Tai-Chi, NEMO and BAIR. The official documentation also recommends cropping/resizing source images and driving videos before animation. 
+
+
