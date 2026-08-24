@@ -1,0 +1,38 @@
+Monday, 17 August 2026
+Week 1 — Project Setup and Repository Preparation
+Work completed
+
+Reviewed the First Order Motion Model project and its purpose.
+Examined the supplied Google Colab code.
+Installed ffmpeg-python and imageio-ffmpeg.
+Initialized a local Git repository.
+Added the First Order Motion Model GitHub repository as the remote.
+Pulled the project source code.
+Cloned the Colab demo repository.
+Reviewed the project folders, including config, modules, demo.py, demo.ipynb, train.py, run.py and dataset-related files. 
+G
+GitHub
+Error/problem faced
+
+A potential setup issue was the use of:
+
+git init .
+
+followed by:
+
+git remote add origin ...
+
+If the Colab directory already contained a Git repository or an origin remote, Git could report that the repository or remote already existed.
+
+Resolution
+
+The repository state was checked before pulling the required source. The project structure was then verified.
+
+Dataset/project picture
+
+Repository structure showing the configuration, model and training files.
+
+Learning
+
+I learned that establishing the correct repository and dependency environment is the first requirement before attempting model inference.
+
