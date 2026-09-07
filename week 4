@@ -1,0 +1,54 @@
+Monday, 7 September 2026
+
+**Week 4 — Model Loading and Checkpoint Preparation**
+
+### Work completed
+
+Studied how the selected model is loaded during the generation process.
+
+Examined the `generate()` function and how it determines the checkpoint filename based on the selected model.
+
+Reviewed the available checkpoint naming logic, including models such as:
+
+* Vox
+* Vox-adv
+* Tai-Chi
+* Tai-Chi-adv
+* NEMO
+* MGIF
+* Fashion
+* BAIR
+
+Studied how the code checks whether the required checkpoint file already exists.
+
+Examined how the project downloads the checkpoint when it is not available locally.
+
+Reviewed the use of `load_checkpoints()` to load the generator and keypoint detector.
+
+Studied the configuration path:
+
+`config/%s-256.yaml`
+
+and understood that the configuration is selected according to the chosen model.
+
+Examined how the loaded generator and keypoint detector are later passed to the animation function.
+
+### Error/problem faced
+
+A potential problem can occur when the required model checkpoint is not present in the local project directory.
+
+The generation process depends on the correct checkpoint file being available. If the checkpoint cannot be downloaded or the filename does not match the selected model, model loading can fail.
+
+### Resolution
+
+The checkpoint filename generation and existence check were reviewed.
+
+The project automatically attempts to download the required checkpoint when it is missing. The configuration file corresponding to the selected model was also checked to ensure that the model and configuration remain consistent.
+
+### Dataset/project picture
+
+Model checkpoint and configuration files showing the relationship between the selected model, configuration file and pretrained weights.
+
+### Learning
+
+I learned that pretrained checkpoints are an important part of the First Order Motion Model because they contain the learned parameters required for inference. I also learned that the generator and keypoint detector work together during the animation process.
