@@ -1,16 +1,22 @@
-📅 Monday, 17 August 2026
-Week 1 — Project Setup and Repository Preparation
+🗓️ WEEK 1 — PROJECT SETUP AND REPOSITORY PREPARATION
+
+Date: Monday, 17 August 2026
+
+🎯 Objective
+
+The objective of Week 1 was to understand the First Order Motion Model project, prepare the development environment, configure the Git repository and study the overall project structure.
+
 🛠️ Work Completed
 Reviewed the First Order Motion Model project and its purpose.
 Examined the supplied Google Colab code.
-Installed required packages including:
+Installed required packages:
 ffmpeg-python
 imageio-ffmpeg
 Initialized a local Git repository.
 Added the First Order Motion Model GitHub repository as the remote.
 Pulled the project source code.
 Cloned the Colab demo repository.
-Reviewed the project structure and important files, including:
+Reviewed the project folders and important files:
 config
 modules
 demo.py
@@ -18,6 +24,9 @@ demo.ipynb
 train.py
 run.py
 Dataset-related files.
+
+The supplied project code also shows the required Python libraries and the creation of the user directory used by the demo.
+
 ⚠️ Error / Problem Faced
 
 A potential setup issue was identified when using:
@@ -28,18 +37,45 @@ git remote add origin ...
 If the Colab directory already contained a Git repository or an existing origin remote, Git could report that the repository or remote already existed.
 
 ✅ Resolution
-Checked the existing repository state before pulling the required source.
+Checked the existing repository state.
 Verified the configured remote.
-Confirmed that the project files were available locally.
-Reviewed the project directory structure to ensure the required files were present.
+Pulled the required source code.
+Checked the project structure.
+Confirmed that the important configuration, model and training files were available.
 🖼️ Dataset / Project Picture
 
 Repository structure showing the configuration, model, demo and training files.
 
 💡 Learning
 
-I learned that establishing the correct repository and dependency environment is the first requirement before attempting model inference. A properly organized project structure also makes it easier to identify configuration, model and dataset-related files.
+I learned that establishing the correct repository and dependency environment is the first requirement before attempting model inference.
 
-📌 Week 1 Outcome
+I also learned that understanding the project structure beforehand makes it easier to locate configuration files, model files, datasets and execution scripts.
 
-Environment → Repository → Source Code → Project Structure
+📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 1
+Use Case Diagram
+
+The main use case of the system is to allow a user to provide a source image and driving video and generate an animated output.
+
+flowchart LR
+    User((User))
+
+    UC1([Select Source Image])
+    UC2([Select Driving Video])
+    UC3([Select Model])
+    UC4([Configure Model Settings])
+    UC5([Generate Animation])
+    UC6([View Output Video])
+
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+    User --> UC5
+    User --> UC6
+
+    UC1 --> UC5
+    UC2 --> UC5
+    UC3 --> UC5
+    UC4 --> UC5
+    UC5 --> UC6
