@@ -1,32 +1,77 @@
-Monday, 31 August 2026
-Week 3 — Image and Video Input Processing
-Work completed
+🗓️ WEEK 3 — IMAGE AND VIDEO INPUT PROCESSING
 
+Date: Monday, 31 August 2026
+
+🎯 Objective
+
+The objective of Week 3 was to understand how source images and driving videos are prepared before being passed to the model.
+
+🛠️ Work Completed
 Studied the resize() function.
-Examined how source images are converted to RGB.
+Examined conversion of source images to RGB.
 Examined center cropping to a square.
 Studied video frame extraction using ImageIO and FFmpeg.
 Checked how video FPS is obtained.
 Examined conversion of video frames to 256 × 256.
-The project documentation states that source images and driving videos should be appropriately cropped before animation. 
-G
-GitHub
+Reviewed the requirement that source images and driving videos should be appropriately cropped before animation.
 
-Error/problem faced
+The supplied implementation crops the image to a square and resizes it to 256 × 256.
+
+⚠️ Error / Problem Faced
 
 An input image that is not square or has an unsupported color mode can create unexpected dimensions or processing problems.
 
-Video files can also fail to decode when FFmpeg support is unavailable or the file format is incompatible.
+Video files can also fail to decode when FFmpeg support is unavailable or when the video format is incompatible.
 
-Resolution
+✅ Resolution
+Converted source images to RGB.
+Applied square cropping.
+Resized images to the required dimensions.
+Installed the required FFmpeg-related packages.
+Reviewed the video frame extraction process.
+🖼️ Dataset / Project Picture
 
-The notebook converts images to RGB and performs square cropping/resizing. FFmpeg-related Python packages were installed.
+VoxCeleb examples showing how facial appearance from a source image can be animated using motion extracted from a driving sequence.
 
-Dataset/project picture
-
-VoxCeleb examples show how facial appearance from a source image can be animated using motion extracted from a driving sequence.
-
-Learning
+💡 Learning
 
 I learned that consistent image dimensions are important because the model configuration expects a 256 × 256 × 3 input.
 
+I also learned that preprocessing is an important part of the machine-learning pipeline because incorrect input dimensions can affect later stages.
+
+🔗 UML — Input Processing
+classDiagram
+
+class SourceImage {
+    +image_data
+    +color_mode
+    +width
+    +height
+}
+
+class DrivingVideo {
+    +video_file
+    +fps
+    +frames
+}
+
+class ImageProcessor {
+    +convertRGB()
+    +cropSquare()
+    +resize256()
+}
+
+class VideoProcessor {
+    +extractFrames()
+    +getFPS()
+    +resizeFrames()
+}
+
+SourceImage --> ImageProcessor
+DrivingVideo --> VideoProcessor
+ImageProcessor --> AnimationPipeline
+VideoProcessor --> AnimationPipeline
+
+class AnimationPipeline {
+    +processInputs()
+}
