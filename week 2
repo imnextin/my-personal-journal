@@ -1,11 +1,16 @@
-Monday, 24 August 2026
-Week 2 — Understanding the Colab Demo Interface
-Work completed
+🗓️ WEEK 2 — UNDERSTANDING THE COLAB DEMO INTERFACE
 
+Date: Monday, 24 August 2026
+
+🎯 Objective
+
+The objective of Week 2 was to understand how the Google Colab interface works and how users select the source image, driving video and model configuration.
+
+🛠️ Work Completed
 Studied the interactive widget interface.
 Identified the source-image selection section.
 Identified the driving-video selection section.
-Examined model choices:
+Examined the available model choices:
 Vox
 Vox-adv
 Tai-Chi
@@ -14,39 +19,66 @@ NEMO
 MGIF
 Fashion
 BAIR
-Examined the relative and adapt_movement_scale options.
+Examined the relative option.
+Examined the adapt_movement_scale option.
 Tested the default image/video selection logic.
-The supplied code initially selects image 00 and video 0.
+Confirmed that the supplied code initially selects:
+Image 00
+Video 0
 
-Error/problem faced
+The project defines tabs for the available image and video resources and creates upload controls for custom inputs.
+
+⚠️ Error / Problem Faced
 
 The interface depends on JavaScript callbacks such as:
 
 notebook.select_image
+notebook.select_video
 
-and
+Colab widget and JavaScript behavior can fail if callbacks are not registered correctly or if the notebook has not completely initialized.
 
-notebook.select_video.
+✅ Resolution
 
-Colab widget/JavaScript behavior can fail if callbacks are not registered correctly or if the notebook has not completely initialized.
+The callback registration and JavaScript selection mechanism were reviewed.
 
-Resolution
-
-The callback registration and JavaScript selection mechanism were reviewed. The default image and video were explicitly selected using:
+The default image and video were explicitly selected using:
 
 select_image('00')
+select_video('0')
+
+The project registers the corresponding callbacks for selecting images and videos.
+
+🖼️ Dataset / Project Picture
+
+Example animation results from the project's benchmark datasets.
+
+💡 Learning
+
+I learned how the project separates the two main inputs:
+
+SOURCE IMAGE
+     ↓
+Appearance
 
 and
 
-select_video('0').
+DRIVING VIDEO
+     ↓
+Motion
 
-Dataset/project picture
+The source image provides the appearance of the subject, while the driving video provides the movement that will be transferred.
 
-Example animation results from the project's benchmark datasets. 
-G
-GitHub
-
-Learning
-
-I learned how the project separates a source image, which provides appearance, from a driving video, which provides motion.
-
+🔄 Activity Diagram — User Animation Workflow
+flowchart TD
+    A([Start]) --> B[Open Google Colab Demo]
+    B --> C[Select Source Image]
+    C --> D[Select Driving Video]
+    D --> E[Select Model]
+    E --> F[Configure Relative Movement]
+    F --> G[Configure Movement Scale]
+    G --> H{Inputs Valid?}
+    H -- No --> I[Correct Inputs]
+    I --> C
+    H -- Yes --> J[Generate Animation]
+    J --> K[View Generated Video]
+    K --> L([End])
