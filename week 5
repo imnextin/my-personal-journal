@@ -1,52 +1,95 @@
-Monday, 14 September 2026
+🗓️ WEEK 5 — KEYPOINT DETECTION AND ANIMATION GENERATION
 
-**Week 5 — Keypoint Detection and Animation Generation**
+Date: Monday, 14 September 2026
 
-### Work completed
+🎯 Objective
 
-Studied the main animation-generation stage of the project.
+The objective of Week 5 was to understand the main animation-generation stage and how motion is transferred from the driving video to the source image.
 
-Examined how the driving video is read frame by frame using ImageIO.
+🛠️ Work Completed
+Studied the main animation-generation stage.
+Examined how the driving video is read frame by frame.
+Reviewed how the driving video's FPS is obtained.
+Studied conversion of source images and driving frames into 256 × 256 arrays.
+Examined the make_animation() function.
+Studied the main inputs required by the animation function:
+Source image
+Driving video frames
+Generator
+Keypoint detector
+Relative keypoint displacement
+Adaptive movement scale
+Studied the purpose of the keypoint detector.
+Examined the relative option.
+Reviewed the adapt_movement_scale option.
+Studied how generated frames are converted into the final output video.
 
-Reviewed how the FPS of the driving video is obtained and used when creating the final output video.
+The implementation passes the processed source image and driving frames to make_animation() and subsequently saves the generated frames as output.mp4.
 
-Studied the conversion of the source image and driving-video frames into 256 × 256 arrays before they are passed to the model.
+⚠️ Error / Problem Faced
 
-Examined the `make_animation()` function and its main inputs:
+Potential problems during animation generation include:
 
-* Source image
-* Driving video frames
-* Generator
-* Keypoint detector
-* Relative keypoint displacement
-* Adaptive movement scale
+Poor source-image cropping.
+Unclear subject information.
+Inconsistent image dimensions.
+Unsuitable driving-video frames.
+Long processing time for longer videos.
+✅ Resolution
+Kept source images and driving frames at 256 × 256.
+Reviewed relative keypoint displacement.
+Reviewed adaptive movement scaling.
+Examined individual processing stages.
+Checked the generated frames and output-video creation process.
 
-Studied the purpose of the keypoint detector in identifying motion information from the driving sequence.
+The generated output uses the FPS obtained from the driving video when saving the animation.
 
-Examined the `relative` option and understood that it allows the motion from the driving video to be applied relative to the source image.
-
-Reviewed the `adapt_movement_scale` option and how it can adjust the movement according to the scale of the objects in the source and driving inputs.
-
-### Error/problem faced
-
-A potential issue during animation generation is inconsistent input quality between the source image and driving video.
-
-If the source image or video contains unsuitable cropping, unclear subject information or inconsistent dimensions, the generated animation may not produce the expected result.
-
-Another possible issue is that animation generation can require significant processing time depending on the model and driving-video length.
-
-### Resolution
-
-The source image and driving frames were kept at the required 256 × 256 resolution before being passed to the model.
-
-The relative keypoint displacement and adaptive movement scale settings were reviewed to understand how they affect the generated movement.
-
-The processing stages were also examined individually so that problems could be identified during input preparation, model loading or animation generation.
-
-### Dataset/project picture
+🖼️ Dataset / Project Picture
 
 Generated animation comparing the original source image with the driving-video motion applied by the First Order Motion Model.
 
-### Learning
+💡 Learning
 
-I learned that the model does not simply copy the driving video. Instead, motion information is extracted from the driving sequence and applied to the appearance of the source image. The keypoint detector and generator therefore play important roles in transferring motion from one input to another.
+I learned that the model does not simply copy the driving video.
+
+Instead:
+
+Driving Video
+     ↓
+Motion Information
+     ↓
+Keypoint Detection
+     ↓
+Motion Transfer
+     ↓
+Generator
+     ↓
+Animated Frames
+
+The appearance comes from the source image, while motion information is extracted from the driving sequence.
+
+🔄 ACTIVITY DIAGRAM — COMPLETE ANIMATION PIPELINE
+flowchart TD
+    A([Start]) --> B[Select Source Image]
+    B --> C[Convert Image to RGB]
+    C --> D[Crop and Resize to 256x256]
+
+    E[Select Driving Video] --> F[Read Video Frames]
+    F --> G[Extract FPS]
+    G --> H[Resize Frames to 256x256]
+
+    D --> I[Load Model Configuration]
+    H --> I
+
+    I --> J[Load Pretrained Checkpoint]
+    J --> K[Load Generator]
+    J --> L[Load Keypoint Detector]
+
+    K --> M[Make Animation]
+    L --> M
+
+    M --> N[Extract Motion]
+    N --> O[Transfer Motion to Source Image]
+    O --> P[Generate Frames]
+    P --> Q[Create Output Video]
+    Q --> R([End])
