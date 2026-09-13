@@ -1,0 +1,92 @@
+🏗️ SDLC DIAGRAM — PROJECT DEVELOPMENT PROCESS
+
+The First Order Motion Model project can be represented through the Software Development Life Cycle as follows:
+
+flowchart LR
+
+A[1. Requirement Analysis] --> 
+B[2. System Design] --> 
+C[3. Implementation] --> 
+D[4. Testing] --> 
+E[5. Deployment] --> 
+F[6. Maintenance]
+
+F --> A
+
+A1[Understand Image Animation Requirements] --> A
+B1[Design Input and Model Pipeline] --> B
+C1[Implement Python / Colab Code] --> C
+D1[Test Images Videos and Models] --> D
+E1[Run Model and Generate Output] --> E
+F1[Fix Errors and Improve Results] --> F
+
+🔗 COMPLETE SYSTEM UML
+flowchart TB
+
+User((USER))
+
+subgraph Input["INPUT LAYER"]
+    Image[Source Image]
+    Video[Driving Video]
+end
+
+subgraph Processing["PREPROCESSING"]
+    IP[Image Processor]
+    VP[Video Processor]
+end
+
+subgraph Model["MODEL LAYER"]
+    Config[Model Configuration]
+    Checkpoint[Pretrained Checkpoint]
+    KD[Keypoint Detector]
+    Gen[Generator]
+end
+
+subgraph Animation["ANIMATION ENGINE"]
+    AE[Motion Transfer / Animation]
+end
+
+subgraph Output["OUTPUT"]
+    Frames[Generated Frames]
+    Output[Output Video]
+end
+
+User --> Image
+User --> Video
+
+Image --> IP
+Video --> VP
+
+IP --> AE
+VP --> AE
+
+Config --> Checkpoint
+Checkpoint --> KD
+Checkpoint --> Gen
+
+KD --> AE
+Gen --> AE
+
+AE --> Frames
+Frames --> Output
+
+Output --> User
+📊 FIVE-WEEK PROJECT PROGRESS
+WEEK 1
+Project Setup
+     ↓
+WEEK 2
+Colab Interface
+     ↓
+WEEK 3
+Input Processing
+     ↓
+WEEK 4
+Model + Checkpoints
+     ↓
+WEEK 5
+Keypoints + Animation
+     ↓
+━━━━━━━━━━━━━━━━━━━━━━
+🎯 NEXT: EXPERIMENTATION
+━━━━━━━━━━━━━━━━━━━━━━
