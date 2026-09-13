@@ -1,54 +1,108 @@
-Monday, 7 September 2026
+🗓️ WEEK 4 — MODEL LOADING AND CHECKPOINT PREPARATION
 
-**Week 4 — Model Loading and Checkpoint Preparation**
+Date: Monday, 7 September 2026
 
-### Work completed
+🎯 Objective
 
-Studied how the selected model is loaded during the generation process.
+The objective of Week 4 was to understand how the selected pretrained model is loaded and prepared for animation generation.
 
-Examined the `generate()` function and how it determines the checkpoint filename based on the selected model.
+🛠️ Work Completed
+Studied how the selected model is loaded.
+Examined the generate() function.
+Studied checkpoint filename generation.
+Reviewed the supported model checkpoint naming logic.
+Examined how the program checks whether the required checkpoint already exists.
+Studied how a missing checkpoint is downloaded.
+Reviewed the load_checkpoints() function.
+Studied how the generator and keypoint detector are loaded.
+Examined the configuration path:
+config/%s-256.yaml
+Studied the relationship between the selected model and its configuration.
+Examined how the generator and keypoint detector are passed to the animation function.
 
-Reviewed the available checkpoint naming logic, including models such as:
+The generation code selects a checkpoint based on the chosen model and then loads the corresponding generator and keypoint detector.
 
-* Vox
-* Vox-adv
-* Tai-Chi
-* Tai-Chi-adv
-* NEMO
-* MGIF
-* Fashion
-* BAIR
+⚠️ Error / Problem Faced
 
-Studied how the code checks whether the required checkpoint file already exists.
+A potential problem occurs when the required pretrained checkpoint is not available locally.
 
-Examined how the project downloads the checkpoint when it is not available locally.
+If the checkpoint cannot be downloaded or the filename does not match the selected model, model loading can fail.
 
-Reviewed the use of `load_checkpoints()` to load the generator and keypoint detector.
-
-Studied the configuration path:
-
-`config/%s-256.yaml`
-
-and understood that the configuration is selected according to the chosen model.
-
-Examined how the loaded generator and keypoint detector are later passed to the animation function.
-
-### Error/problem faced
-
-A potential problem can occur when the required model checkpoint is not present in the local project directory.
-
-The generation process depends on the correct checkpoint file being available. If the checkpoint cannot be downloaded or the filename does not match the selected model, model loading can fail.
-
-### Resolution
-
-The checkpoint filename generation and existence check were reviewed.
-
-The project automatically attempts to download the required checkpoint when it is missing. The configuration file corresponding to the selected model was also checked to ensure that the model and configuration remain consistent.
-
-### Dataset/project picture
+✅ Resolution
+Reviewed the checkpoint existence check.
+Verified the model-to-checkpoint naming logic.
+Checked the corresponding configuration file.
+Confirmed that the project attempts to download missing checkpoints.
+Verified that the loaded model components are passed to the animation stage.
+🖼️ Dataset / Project Picture
 
 Model checkpoint and configuration files showing the relationship between the selected model, configuration file and pretrained weights.
 
-### Learning
+💡 Learning
 
-I learned that pretrained checkpoints are an important part of the First Order Motion Model because they contain the learned parameters required for inference. I also learned that the generator and keypoint detector work together during the animation process.
+I learned that pretrained checkpoints contain the learned parameters required for inference.
+
+I also learned that the generator and keypoint detector have different responsibilities within the animation pipeline.
+
+📐 UML CLASS DIAGRAM — MODEL ARCHITECTURE
+classDiagram
+
+class User {
+    +selectImage()
+    +selectVideo()
+    +selectModel()
+    +generateAnimation()
+}
+
+class SourceImage {
+    +imageData
+    +resize()
+}
+
+class DrivingVideo {
+    +videoData
+    +fps
+    +frames
+}
+
+class Configuration {
+    +modelName
+    +imageSize
+}
+
+class Checkpoint {
+    +filename
+    +modelWeights
+}
+
+class KeypointDetector {
+    +detectKeypoints()
+    +trackMotion()
+}
+
+class Generator {
+    +generateFrame()
+}
+
+class AnimationEngine {
+    +makeAnimation()
+    +applyMotion()
+}
+
+class OutputVideo {
+    +frames
+    +fps
+    +save()
+}
+
+User --> SourceImage
+User --> DrivingVideo
+User --> Configuration
+Configuration --> Checkpoint
+Checkpoint --> KeypointDetector
+Checkpoint --> Generator
+SourceImage --> AnimationEngine
+DrivingVideo --> AnimationEngine
+KeypointDetector --> AnimationEngine
+Generator --> AnimationEngine
+AnimationEngine --> OutputVideo
