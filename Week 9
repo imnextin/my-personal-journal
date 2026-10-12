@@ -1,0 +1,27 @@
+📅 Monday, 12 October 2026
+Week 9 — Output Video Generation and Quality Checking
+🎯 Objective
+
+To understand the final output-generation process and inspect the quality of the generated animation.
+
+🛠️ Work Completed
+Reviewed how generated frames are saved as output.mp4.
+Examined how the driving video's FPS is used when saving the animation.
+Reviewed the optional audio-merging step.
+Checked the output-generation process for possible video-processing issues.
+⚠️ Problem Faced
+
+Video generation can encounter problems if the output cannot be encoded correctly or if the video-processing tools are unavailable. The generated animation may also contain unnatural movements even when the output file is created.
+
+✅ Resolution
+Reviewed the FFmpeg-related processing steps.
+Checked the output file and its playback.
+Examined the generated frames to identify visual inconsistencies.
+Kept input processing and output generation as separate troubleshooting stages.
+🖼️ Project Picture
+
+Generated output video alongside the original driving video for comparison.
+
+💡 Learning
+
+I learned that generating a video file is not enough to establish good results. Both technical output quality and the naturalness of the animation need to be checked.
