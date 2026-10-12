@@ -1,0 +1,26 @@
+📅 Monday, 21 September 2026
+Week 6 — Testing Different Input Images and Videos
+🎯 Objective
+
+To test how different source images and driving videos affect the quality of the generated animation.
+
+🛠️ Work Completed
+Tested different source images and driving-video inputs.
+Observed how image cropping and subject positioning affected animation.
+Reviewed the generated frames for movement consistency.
+Compared outputs produced using different input combinations.
+⚠️ Problem Faced
+
+Some input combinations could produce unnatural facial movement or distorted output, especially when the source image and driving video had different poses or framing.
+
+✅ Resolution
+Selected clearer source images with the subject positioned centrally.
+Checked image cropping and video quality before processing.
+Used shorter driving clips during initial testing to simplify troubleshooting.
+🖼️ Project Picture
+
+Comparison of source images, driving-video frames and generated animation.
+
+💡 Learning
+
+I learned that input quality significantly affects the final animation. Suitable images and driving videos help improve motion transfer.
