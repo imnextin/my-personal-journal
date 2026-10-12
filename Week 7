@@ -1,0 +1,26 @@
+📅 Monday; 28 September 2026
+Week 7 — Experimenting with Model Settings
+🎯 Objective
+
+To understand how model settings influence the movement and appearance of generated animations.
+
+🛠️ Work Completed
+Examined the relative setting.
+Tested the adapt_movement_scale option.
+Compared how different setting combinations affected the generated movement.
+Reviewed the output for excessive movement and visual inconsistencies.
+⚠️ Problem Faced
+
+Movement could appear exaggerated or inconsistent when the selected settings were unsuitable for the source image and driving video.
+
+✅ Resolution
+Tested one setting at a time to understand its effect.
+Compared the generated results using the same input pair.
+Kept track of the settings used for each experiment.
+🖼️ Project Picture
+
+Comparison of animation outputs generated with different movement settings.
+
+💡 Learning
+
+I learned that model settings can influence the animation result. Testing settings systematically makes it easier to identify a suitable configuration.
