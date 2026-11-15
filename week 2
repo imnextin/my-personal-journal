@@ -1,56 +1,9 @@
-# 🗓️ WEEK 2 — UNDERSTANDING THE COLAB DEMO INTERFACE
-
-**Date:** Monday, 24 August 2026
-
-## 🎯 Objective
-
-Understand how the Google Colab interface works and how users select the source image, driving video, and model configuration.
-
-## 🛠️ Work Completed
-
-- Studied the interactive widget interface and identified the source-image and driving-video selection sections.
-- Reviewed the available model choices: Vox, Vox-adv, Tai-Chi, Tai-Chi-adv, NEMO, MGIF, Fashion, and BAIR.
-- Examined the `relative` and `adapt_movement_scale` options.
-- Reviewed the default selection logic, which initially selects image `00` and video `0`.
-- Examined the tabs for available image and video resources and the upload controls for custom inputs.
-- Reviewed the JavaScript callbacks `notebook.select_image` and `notebook.select_video`.
-
-## ⚠️ Error / Problem Faced
+Error / Problem Faced
 
 Colab widget interactions can fail if callbacks are not registered correctly or if the notebook has not finished initializing.
 
-## ✅ Resolution
+Solution
 
-- Reviewed the callback registration and JavaScript selection mechanism.
-- Confirmed that the default image and video are selected with `select_image('00')` and `select_video('0')`.
-- Checked that the project registers the callbacks used to select images and videos.
-
-## 🖼️ Dataset / Project Picture
-
-Example animation results from the project's benchmark datasets.
-
-## 💡 Learning
-
-I learned that the two main inputs have distinct roles: the source image provides the subject's appearance, while the driving video provides the motion to transfer.
-
-## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 2
-
-### Activity Diagram — User Animation Workflow
-
-The workflow shows how a user selects inputs and settings, validates them, and generates an animation.
-
-```mermaid
-flowchart TD
-    A([Start]) --> B[Open Google Colab Demo]
-    B --> C[Select Source Image]
-    C --> D[Select Driving Video]
-    D --> E[Select Model]
-    E --> F[Configure Relative Movement]
-    F --> G[Configure Movement Scale]
-    G --> H{Inputs Valid?}
-    H -- No --> I[Correct Inputs]
-    I --> C
-    H -- Yes --> J[Generate Animation]
-    J --> K[View Generated Video]
-    K --> L([End])
-```
+Reviewed the callback registration and JavaScript selection mechanism.
+Confirmed that the default image and video are selected with `select_image('00')` and `select_video('0')`.
+Checked that the project registers the callbacks used to select images and videos.
