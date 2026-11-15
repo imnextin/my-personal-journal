@@ -1,64 +1,10 @@
-# 🗓️ WEEK 1 — PROJECT SETUP AND REPOSITORY PREPARATION
-
-**Date:** Monday, 17 August 2026
-
-## 🎯 Objective
-
-Understand the First Order Motion Model project, prepare the development environment, configure the Git repository, and review the project structure.
-
-## 🛠️ Work Completed
-
-- Reviewed the First Order Motion Model project and its purpose.
-- Examined the supplied Google Colab code.
-- Installed the required packages: `ffmpeg-python` and `imageio-ffmpeg`.
-- Initialized a local Git repository and added the project repository as a remote.
-- Pulled the project source code and cloned the Colab demo repository.
-- Reviewed important project folders and files, including `config`, `modules`, `demo.py`, `demo.ipynb`, `train.py`, `run.py`, and dataset-related files.
-- Reviewed the required Python libraries and the user-directory setup used by the demo.
-
-## ⚠️ Error / Problem Faced
+Error 
 
 Running `git init .` or `git remote add origin ...` may report an error if the directory is already a Git repository or already has an `origin` remote.
 
-## ✅ Resolution
+solution
 
-- Checked the existing repository state and verified the configured remote.
-- Pulled the required source code.
-- Reviewed the project structure and confirmed that the configuration, model, and training files were available.
+Checked the existing repository state and verified the configured remote.
+Pulled the required source code.
+Reviewed the project structure and confirmed that the configuration, model, and training files were available.
 
-## 🖼️ Dataset / Project Picture
-
-Repository structure showing the configuration, model, demo, and training files.
-
-## 💡 Learning
-
-I learned that establishing the correct repository and dependency environment is the first requirement before attempting model inference. Reviewing the project structure also makes it easier to locate configuration files, model files, datasets, and execution scripts.
-
-## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 1
-
-### Use Case Diagram
-
-The main use case is to let a user provide a source image and driving video and generate an animated output.
-
-```mermaid
-flowchart LR
-    User((User))
-    UC1([Select Source Image])
-    UC2([Select Driving Video])
-    UC3([Select Model])
-    UC4([Configure Model Settings])
-    UC5([Generate Animation])
-    UC6([View Output Video])
-
-    User --> UC1
-    User --> UC2
-    User --> UC3
-    User --> UC4
-    User --> UC5
-    User --> UC6
-    UC1 --> UC5
-    UC2 --> UC5
-    UC3 --> UC5
-    UC4 --> UC5
-    UC5 --> UC6
-```
