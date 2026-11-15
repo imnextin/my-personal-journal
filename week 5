@@ -1,64 +1,10 @@
-# 🗓️ WEEK 5 — KEYPOINT DETECTION AND ANIMATION GENERATION
-
-**Date:** Monday, 14 September 2026
-
-## 🎯 Objective
-
-Understand the main animation-generation stage and how motion is transferred from the driving video to the source image.
-
-## 🛠️ Work Completed
-
-- Studied how the driving video is read frame by frame and how its FPS is obtained.
-- Reviewed conversion of the source image and driving frames into 256 × 256 arrays.
-- Examined the `make_animation()` function and its inputs: source image, driving frames, generator, and keypoint detector.
-- Studied relative keypoint displacement and adaptive movement scaling.
-- Reviewed how generated frames are converted into the final output video.
-
-## ⚠️ Error / Problem Faced
+Error / Problem Faced
 
 Potential problems during animation generation include poor source-image cropping, unclear subject information, inconsistent image dimensions, unsuitable driving-video frames, and long processing times for longer videos.
 
-## ✅ Resolution
+Solution
 
-- Kept source images and driving frames at 256 × 256 pixels.
-- Reviewed relative keypoint displacement and adaptive movement scaling.
-- Examined the individual processing stages and checked the generated frames and output-video creation process.
-- Confirmed that the output uses the FPS obtained from the driving video.
-
-## 🖼️ Dataset / Project Picture
-
-Generated animation comparing the original source image with the driving-video motion applied by the First Order Motion Model.
-
-## 💡 Learning
-
-I learned that the model does not simply copy the driving video. It extracts motion information, detects keypoints, and transfers the motion to the source image. The source image provides appearance, while the driving sequence provides motion.
-
-## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 5
-
-### Activity Diagram — Complete Animation Pipeline
-
-The diagram describes input preparation, model loading, motion transfer, and output-video creation.
-
-```mermaid
-flowchart TD
-    A([Start]) --> B[Select Source Image]
-    B --> C[Convert Image to RGB]
-    C --> D[Crop and Resize to 256x256]
-
-    E[Select Driving Video] --> F[Read Video Frames]
-    F --> G[Extract FPS]
-    G --> H[Resize Frames to 256x256]
-
-    D --> I[Load Model Configuration]
-    H --> I
-    I --> J[Load Pretrained Checkpoint]
-    J --> K[Load Generator]
-    J --> L[Load Keypoint Detector]
-    K --> M[Make Animation]
-    L --> M
-    M --> N[Extract Motion]
-    N --> O[Transfer Motion to Source Image]
-    O --> P[Generate Frames]
-    P --> Q[Create Output Video]
-    Q --> R([End])
-```
+Kept source images and driving frames at 256 × 256 pixels.
+Reviewed relative keypoint displacement and adaptive movement scaling.
+Examined the individual processing stages and checked the generated frames and output-video creation process.
+Confirmed that the output uses the FPS obtained from the driving video.
