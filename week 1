@@ -1,65 +1,48 @@
-🗓️ WEEK 1 — PROJECT SETUP AND REPOSITORY PREPARATION
+# 🗓️ WEEK 1 — PROJECT SETUP AND REPOSITORY PREPARATION
 
-Date: Monday, 17 August 2026
+**Date:** Monday, 17 August 2026
 
-🎯 Objective
+## 🎯 Objective
 
-The objective of Week 1 was to understand the First Order Motion Model project, prepare the development environment, configure the Git repository and study the overall project structure.
+Understand the First Order Motion Model project, prepare the development environment, configure the Git repository, and review the project structure.
 
-🛠️ Work Completed
-Reviewed the First Order Motion Model project and its purpose.
-Examined the supplied Google Colab code.
-Installed required packages:
-ffmpeg-python
-imageio-ffmpeg
-Initialized a local Git repository.
-Added the First Order Motion Model GitHub repository as the remote.
-Pulled the project source code.
-Cloned the Colab demo repository.
-Reviewed the project folders and important files:
-config
-modules
-demo.py
-demo.ipynb
-train.py
-run.py
-Dataset-related files.
+## 🛠️ Work Completed
 
-The supplied project code also shows the required Python libraries and the creation of the user directory used by the demo.
+- Reviewed the First Order Motion Model project and its purpose.
+- Examined the supplied Google Colab code.
+- Installed the required packages: `ffmpeg-python` and `imageio-ffmpeg`.
+- Initialized a local Git repository and added the project repository as a remote.
+- Pulled the project source code and cloned the Colab demo repository.
+- Reviewed important project folders and files, including `config`, `modules`, `demo.py`, `demo.ipynb`, `train.py`, `run.py`, and dataset-related files.
+- Reviewed the required Python libraries and the user-directory setup used by the demo.
 
-⚠️ Error / Problem Faced
+## ⚠️ Error / Problem Faced
 
-A potential setup issue was identified when using:
+Running `git init .` or `git remote add origin ...` may report an error if the directory is already a Git repository or already has an `origin` remote.
 
-git init .
-git remote add origin ...
+## ✅ Resolution
 
-If the Colab directory already contained a Git repository or an existing origin remote, Git could report that the repository or remote already existed.
+- Checked the existing repository state and verified the configured remote.
+- Pulled the required source code.
+- Reviewed the project structure and confirmed that the configuration, model, and training files were available.
 
-✅ Resolution
-Checked the existing repository state.
-Verified the configured remote.
-Pulled the required source code.
-Checked the project structure.
-Confirmed that the important configuration, model and training files were available.
-🖼️ Dataset / Project Picture
+## 🖼️ Dataset / Project Picture
 
-Repository structure showing the configuration, model, demo and training files.
+Repository structure showing the configuration, model, demo, and training files.
 
-💡 Learning
+## 💡 Learning
 
-I learned that establishing the correct repository and dependency environment is the first requirement before attempting model inference.
+I learned that establishing the correct repository and dependency environment is the first requirement before attempting model inference. Reviewing the project structure also makes it easier to locate configuration files, model files, datasets, and execution scripts.
 
-I also learned that understanding the project structure beforehand makes it easier to locate configuration files, model files, datasets and execution scripts.
+## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 1
 
-📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 1
-Use Case Diagram
+### Use Case Diagram
 
-The main use case of the system is to allow a user to provide a source image and driving video and generate an animated output.
+The main use case is to let a user provide a source image and driving video and generate an animated output.
 
+```mermaid
 flowchart LR
     User((User))
-
     UC1([Select Source Image])
     UC2([Select Driving Video])
     UC3([Select Model])
@@ -73,9 +56,9 @@ flowchart LR
     User --> UC4
     User --> UC5
     User --> UC6
-
     UC1 --> UC5
     UC2 --> UC5
     UC3 --> UC5
     UC4 --> UC5
     UC5 --> UC6
+```

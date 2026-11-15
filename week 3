@@ -1,77 +1,76 @@
-🗓️ WEEK 3 — IMAGE AND VIDEO INPUT PROCESSING
+# 🗓️ WEEK 3 — IMAGE AND VIDEO INPUT PROCESSING
 
-Date: Monday, 31 August 2026
+**Date:** Monday, 31 August 2026
 
-🎯 Objective
+## 🎯 Objective
 
-The objective of Week 3 was to understand how source images and driving videos are prepared before being passed to the model.
+Understand how source images and driving videos are prepared before being passed to the model.
 
-🛠️ Work Completed
-Studied the resize() function.
-Examined conversion of source images to RGB.
-Examined center cropping to a square.
-Studied video frame extraction using ImageIO and FFmpeg.
-Checked how video FPS is obtained.
-Examined conversion of video frames to 256 × 256.
-Reviewed the requirement that source images and driving videos should be appropriately cropped before animation.
+## 🛠️ Work Completed
 
-The supplied implementation crops the image to a square and resizes it to 256 × 256.
+- Studied the image `resize()` function and conversion of source images to RGB.
+- Examined center-cropping images to a square and resizing them to 256 × 256 pixels.
+- Reviewed video-frame extraction using ImageIO and FFmpeg.
+- Checked how the driving video's FPS is obtained and how frames are resized to 256 × 256 pixels.
+- Reviewed the requirement to crop source images and driving video frames appropriately before animation.
 
-⚠️ Error / Problem Faced
+## ⚠️ Error / Problem Faced
 
-An input image that is not square or has an unsupported color mode can create unexpected dimensions or processing problems.
+A non-square image or an unsupported color mode can cause unexpected dimensions or processing problems. Video decoding may also fail if FFmpeg support is unavailable or the video format is incompatible.
 
-Video files can also fail to decode when FFmpeg support is unavailable or when the video format is incompatible.
+## ✅ Resolution
 
-✅ Resolution
-Converted source images to RGB.
-Applied square cropping.
-Resized images to the required dimensions.
-Installed the required FFmpeg-related packages.
-Reviewed the video frame extraction process.
-🖼️ Dataset / Project Picture
+- Converted source images to RGB, applied square cropping, and resized them to the required dimensions.
+- Installed the required FFmpeg-related packages.
+- Reviewed the video-frame extraction process.
+
+## 🖼️ Dataset / Project Picture
 
 VoxCeleb examples showing how facial appearance from a source image can be animated using motion extracted from a driving sequence.
 
-💡 Learning
+## 💡 Learning
 
-I learned that consistent image dimensions are important because the model configuration expects a 256 × 256 × 3 input.
+I learned that consistent image dimensions are important because the model configuration expects a 256 × 256 × 3 input. Preprocessing is an important part of the machine-learning pipeline because incorrect input dimensions can affect later stages.
 
-I also learned that preprocessing is an important part of the machine-learning pipeline because incorrect input dimensions can affect later stages.
+## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 3
 
-🔗 UML — Input Processing
+### UML Class Diagram — Input Processing
+
+The diagram shows the input data and the processors that prepare it for the animation pipeline.
+
+```mermaid
 classDiagram
+    class SourceImage {
+        +image_data
+        +color_mode
+        +width
+        +height
+    }
 
-class SourceImage {
-    +image_data
-    +color_mode
-    +width
-    +height
-}
+    class DrivingVideo {
+        +video_file
+        +fps
+        +frames
+    }
 
-class DrivingVideo {
-    +video_file
-    +fps
-    +frames
-}
+    class ImageProcessor {
+        +convertRGB()
+        +cropSquare()
+        +resize256()
+    }
 
-class ImageProcessor {
-    +convertRGB()
-    +cropSquare()
-    +resize256()
-}
+    class VideoProcessor {
+        +extractFrames()
+        +getFPS()
+        +resizeFrames()
+    }
 
-class VideoProcessor {
-    +extractFrames()
-    +getFPS()
-    +resizeFrames()
-}
+    class AnimationPipeline {
+        +processInputs()
+    }
 
-SourceImage --> ImageProcessor
-DrivingVideo --> VideoProcessor
-ImageProcessor --> AnimationPipeline
-VideoProcessor --> AnimationPipeline
-
-class AnimationPipeline {
-    +processInputs()
-}
+    SourceImage --> ImageProcessor
+    DrivingVideo --> VideoProcessor
+    ImageProcessor --> AnimationPipeline
+    VideoProcessor --> AnimationPipeline
+```

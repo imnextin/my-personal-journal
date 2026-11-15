@@ -1,27 +1,55 @@
-📅 Monday, 12 October 2026
-Week 9 — Output Video Generation and Quality Checking
-🎯 Objective
+# 🗓️ WEEK 9 — OUTPUT VIDEO GENERATION AND QUALITY CHECKING
 
-To understand the final output-generation process and inspect the quality of the generated animation.
+**Date:** Monday, 12 October 2026
 
-🛠️ Work Completed
-Reviewed how generated frames are saved as output.mp4.
-Examined how the driving video's FPS is used when saving the animation.
-Reviewed the optional audio-merging step.
-Checked the output-generation process for possible video-processing issues.
-⚠️ Problem Faced
+## 🎯 Objective
 
-Video generation can encounter problems if the output cannot be encoded correctly or if the video-processing tools are unavailable. The generated animation may also contain unnatural movements even when the output file is created.
+Understand the final output-generation process and inspect the quality of the generated animation.
 
-✅ Resolution
-Reviewed the FFmpeg-related processing steps.
-Checked the output file and its playback.
-Examined the generated frames to identify visual inconsistencies.
-Kept input processing and output generation as separate troubleshooting stages.
-🖼️ Project Picture
+## 🛠️ Work Completed
+
+- Reviewed how generated frames are saved as `output.mp4`.
+- Examined how the driving video's FPS is used when saving the animation.
+- Reviewed the optional audio-merging step.
+- Checked the output-generation process for possible video-processing issues.
+
+## ⚠️ Error / Problem Faced
+
+Video generation can encounter problems if the output cannot be encoded correctly or video-processing tools are unavailable. The generated animation may also contain unnatural movements even when the video file is created successfully.
+
+## ✅ Resolution
+
+- Reviewed the FFmpeg-related processing steps.
+- Checked the output file and its playback.
+- Examined generated frames to identify visual inconsistencies.
+- Kept input processing and output generation as separate troubleshooting stages.
+
+## 🖼️ Dataset / Project Picture
 
 Generated output video alongside the original driving video for comparison.
 
-💡 Learning
+## 💡 Learning
 
 I learned that generating a video file is not enough to establish good results. Both technical output quality and the naturalness of the animation need to be checked.
+
+## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 9
+
+### Activity Diagram — Output Generation and Quality Check
+
+The workflow creates the output video and checks both playback and animation quality.
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Collect Generated Frames]
+    B --> C[Get Driving Video FPS]
+    C --> D[Encode Output Video]
+    D --> E{Encoding Successful?}
+    E -- No --> F[Review FFmpeg and Output Settings]
+    F --> D
+    E -- Yes --> G[Check Playback]
+    G --> H[Review Animation Quality]
+    H --> I{Quality Acceptable?}
+    I -- No --> J[Review Inputs and Processing Stages]
+    J --> B
+    I -- Yes --> K([End])
+```

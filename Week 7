@@ -1,26 +1,52 @@
-📅 Monday; 28 September 2026
-Week 7 — Experimenting with Model Settings
-🎯 Objective
+# 🗓️ WEEK 7 — EXPERIMENTING WITH MODEL SETTINGS
 
-To understand how model settings influence the movement and appearance of generated animations.
+**Date:** Monday, 28 September 2026
 
-🛠️ Work Completed
-Examined the relative setting.
-Tested the adapt_movement_scale option.
-Compared how different setting combinations affected the generated movement.
-Reviewed the output for excessive movement and visual inconsistencies.
-⚠️ Problem Faced
+## 🎯 Objective
+
+Understand how model settings influence the movement and appearance of generated animations.
+
+## 🛠️ Work Completed
+
+- Examined the `relative` setting.
+- Tested the `adapt_movement_scale` option.
+- Compared how different setting combinations affected generated movement.
+- Reviewed outputs for excessive movement and visual inconsistencies.
+
+## ⚠️ Error / Problem Faced
 
 Movement could appear exaggerated or inconsistent when the selected settings were unsuitable for the source image and driving video.
 
-✅ Resolution
-Tested one setting at a time to understand its effect.
-Compared the generated results using the same input pair.
-Kept track of the settings used for each experiment.
-🖼️ Project Picture
+## ✅ Resolution
+
+- Tested one setting at a time to understand its effect.
+- Compared generated results using the same input pair.
+- Kept track of the settings used for each experiment.
+
+## 🖼️ Dataset / Project Picture
 
 Comparison of animation outputs generated with different movement settings.
 
-💡 Learning
+## 💡 Learning
 
 I learned that model settings can influence the animation result. Testing settings systematically makes it easier to identify a suitable configuration.
+
+## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 7
+
+### Activity Diagram — Model Setting Experiment
+
+The workflow changes one setting at a time and compares the resulting animation with the same inputs.
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Select Source Image and Driving Video]
+    B --> C[Choose Model Settings]
+    C --> D[Generate Animation]
+    D --> E[Review Movement and Appearance]
+    E --> F{Result Suitable?}
+    F -- Yes --> G[Record Settings and Result]
+    F -- No --> H[Adjust One Setting]
+    H --> D
+    G --> I[Compare Experiments]
+    I --> J([End])
+```

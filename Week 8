@@ -1,27 +1,54 @@
-📅 Monday, 5 October 2026
-Week 8 — Model Configuration and Checkpoint Troubleshooting
-🎯 Objective
+# 🗓️ WEEK 8 — MODEL CONFIGURATION AND CHECKPOINT TROUBLESHOOTING
 
-To understand model configuration and troubleshoot potential problems during model loading.
+**Date:** Monday, 5 October 2026
 
-🛠️ Work Completed
-Reviewed the configuration files for the selected models.
-Examined the checkpoint-loading process.
-Checked how the selected model determines the checkpoint filename.
-Reviewed the relationship between configuration files and pretrained weights.
-⚠️ Problem Faced
+## 🎯 Objective
 
-A potential model-loading problem occurs when a checkpoint is missing, cannot be downloaded, or does not correspond to the selected model configuration.
+Understand model configuration and troubleshoot potential problems during model loading.
 
-✅ Resolution
-Checked the expected checkpoint filename.
-Verified that the corresponding configuration file was available.
-Reviewed the checkpoint download and loading logic.
-Kept the model selection and its configuration consistent during testing.
-🖼️ Project Picture
+## 🛠️ Work Completed
+
+- Reviewed configuration files for the selected models.
+- Examined the checkpoint-loading process and how the selected model determines its checkpoint filename.
+- Reviewed the relationship between configuration files and pretrained weights.
+
+## ⚠️ Error / Problem Faced
+
+A model-loading problem can occur when a checkpoint is missing, cannot be downloaded, or does not correspond to the selected model configuration.
+
+## ✅ Resolution
+
+- Checked the expected checkpoint filename.
+- Verified that the corresponding configuration file was available.
+- Reviewed the checkpoint download and loading logic.
+- Kept model selection and configuration consistent during testing.
+
+## 🖼️ Dataset / Project Picture
 
 Model configuration and checkpoint files used by the animation pipeline.
 
-💡 Learning
+## 💡 Learning
 
 I learned that pretrained weights and configuration files must correspond to the intended model. Correct model setup is essential before running inference.
+
+## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 8
+
+### Activity Diagram — Checkpoint and Configuration Validation
+
+The workflow verifies that the selected model, configuration, and checkpoint are consistent before loading.
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Select Model]
+    B --> C[Find Model Configuration]
+    C --> D{Configuration Available?}
+    D -- No --> E[Correct Model Selection or Configuration]
+    E --> C
+    D -- Yes --> F[Determine Checkpoint Filename]
+    F --> G{Checkpoint Available?}
+    G -- No --> H[Download Checkpoint]
+    H --> I[Load Checkpoint]
+    G -- Yes --> I
+    I --> J[Load Model Components]
+    J --> K([Ready for Inference])
+```
