@@ -1,54 +1,10 @@
-# 🗓️ WEEK 8 — MODEL CONFIGURATION AND CHECKPOINT TROUBLESHOOTING
-
-**Date:** Monday, 5 October 2026
-
-## 🎯 Objective
-
-Understand model configuration and troubleshoot potential problems during model loading.
-
-## 🛠️ Work Completed
-
-- Reviewed configuration files for the selected models.
-- Examined the checkpoint-loading process and how the selected model determines its checkpoint filename.
-- Reviewed the relationship between configuration files and pretrained weights.
-
-## ⚠️ Error / Problem Faced
+Error / Problem Faced
 
 A model-loading problem can occur when a checkpoint is missing, cannot be downloaded, or does not correspond to the selected model configuration.
 
-## ✅ Resolution
+Solution
 
-- Checked the expected checkpoint filename.
-- Verified that the corresponding configuration file was available.
-- Reviewed the checkpoint download and loading logic.
-- Kept model selection and configuration consistent during testing.
-
-## 🖼️ Dataset / Project Picture
-
-Model configuration and checkpoint files used by the animation pipeline.
-
-## 💡 Learning
-
-I learned that pretrained weights and configuration files must correspond to the intended model. Correct model setup is essential before running inference.
-
-## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 8
-
-### Activity Diagram — Checkpoint and Configuration Validation
-
-The workflow verifies that the selected model, configuration, and checkpoint are consistent before loading.
-
-```mermaid
-flowchart TD
-    A([Start]) --> B[Select Model]
-    B --> C[Find Model Configuration]
-    C --> D{Configuration Available?}
-    D -- No --> E[Correct Model Selection or Configuration]
-    E --> C
-    D -- Yes --> F[Determine Checkpoint Filename]
-    F --> G{Checkpoint Available?}
-    G -- No --> H[Download Checkpoint]
-    H --> I[Load Checkpoint]
-    G -- Yes --> I
-    I --> J[Load Model Components]
-    J --> K([Ready for Inference])
-```
+Checked the expected checkpoint filename.
+Verified that the corresponding configuration file was available.
+Reviewed the checkpoint download and loading logic.
+Kept model selection and configuration consistent during testing.
