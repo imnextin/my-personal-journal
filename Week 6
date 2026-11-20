@@ -1,54 +1,9 @@
-# 🗓️ WEEK 6 — TESTING DIFFERENT INPUT IMAGES AND VIDEOS
-
-**Date:** Monday, 21 September 2026
-
-## 🎯 Objective
-
-Test how different source images and driving videos affect the quality of the generated animation.
-
-## 🛠️ Work Completed
-
-- Tested different source images and driving-video inputs.
-- Observed how image cropping and subject positioning affected animation.
-- Reviewed generated frames for movement consistency.
-- Compared outputs produced using different input combinations.
-
-## ⚠️ Error / Problem Faced
+Error / Problem Faced
 
 Some input combinations produced unnatural facial movement or distorted output, especially when the source image and driving video had different poses or framing.
 
-## ✅ Resolution
+Solution
 
-- Selected clearer source images with the subject positioned centrally.
-- Checked image cropping and video quality before processing.
-- Used shorter driving clips during initial testing to simplify troubleshooting.
-
-## 🖼️ Dataset / Project Picture
-
-Comparison of source images, driving-video frames, and generated animation.
-
-## 💡 Learning
-
-I learned that input quality significantly affects the final animation. Suitable images and driving videos help improve motion transfer.
-
-## 📌 SOFTWARE ENGINEERING REQUIREMENT — WEEK 6
-
-### Activity Diagram — Input Testing
-
-The workflow compares animation results from different image and video combinations.
-
-```mermaid
-flowchart TD
-    A([Start]) --> B[Choose Source Image]
-    B --> C[Check Crop and Subject Position]
-    C --> D[Choose Driving Video]
-    D --> E[Check Video Quality and Framing]
-    E --> F[Generate Animation]
-    F --> G[Review Generated Frames]
-    G --> H{Output Consistent?}
-    H -- Yes --> I[Record Input Combination]
-    H -- No --> J[Choose Different Inputs]
-    J --> B
-    I --> K[Compare Results]
-    K --> L([End])
-```
+Selected clearer source images with the subject positioned centrally.
+Checked image cropping and video quality before processing.
+Used shorter driving clips during initial testing to simplify troubleshooting.
